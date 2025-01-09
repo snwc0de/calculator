@@ -38,7 +38,10 @@ function getValues () {
                 getEquals();
                 updateDisplay();
             } else if (item.classList.contains("clear")) {
-                getClear();
+                clearDisplay();
+                updateDisplay();
+            } else if (item.classList.contains("decimal")) {
+                addDecimal(item.textContent);
                 updateDisplay();
             }
         });
@@ -83,9 +86,18 @@ function getEquals () {
     }
 }
 
-function getClear () {
+function clearDisplay () {
     displayValue = 0;
     firstOperator = null;
     firstOperand = null;
     secondOperand = null;
-}
+};
+
+function addDecimal (dot) {
+    if (displayValue === firstOperand || displayValue === secondOperand) {
+        displayValue = 0;
+        displayValue += dot;
+    } else {
+        displayValue += dot;
+    }
+};
