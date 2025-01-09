@@ -35,7 +35,10 @@ function getValues () {
                 getOperator (item.textContent);
                 updateDisplay();
             } else if (item.classList.contains("equals")) {
-                getEquals()
+                getEquals();
+                updateDisplay();
+            } else if (item.classList.contains("clear")) {
+                getClear();
                 updateDisplay();
             }
         });
@@ -51,7 +54,6 @@ function getOperand (operand) {
             displayValue = operand;
         } else {
             displayValue += operand;
-            console.log(displayValue);
         }
     }   else {
         if (displayValue === firstOperand) {
@@ -66,10 +68,8 @@ function getOperator (operator) {
     if (firstOperator === null) {
         firstOperand = displayValue;
         firstOperator = operator;
-        console.log(firstOperator)
     } else if (firstOperator !== null) {
         secondOperand = displayValue;
-        console.log(secondOperand);
     };
 };
 
@@ -81,4 +81,11 @@ function getEquals () {
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator)
         displayValue = result;
     }
+}
+
+function getClear () {
+    displayValue = 0;
+    firstOperator = null;
+    firstOperand = null;
+    secondOperand = null;
 }
