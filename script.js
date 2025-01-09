@@ -46,6 +46,9 @@ function getValues () {
             } else if (item.classList.contains("percentage")) {
                 getPercentage(displayValue);
                 updateDisplay();
+            } else if (item.classList.contains("inverse")) {
+                getInverse(displayValue);
+                updateDisplay();
             }
         });
     });
@@ -108,3 +111,7 @@ function addDecimal (dot) {
 function getPercentage (num) {
     displayValue = num/100;
 };
+
+function getInverse (num) {
+    displayValue = num * (-1);
+}
