@@ -43,6 +43,9 @@ function getValues () {
             } else if (item.classList.contains("decimal")) {
                 addDecimal(item.textContent);
                 updateDisplay();
+            } else if (item.classList.contains("percentage")) {
+                getPercentage(displayValue);
+                updateDisplay();
             }
         });
     });
@@ -100,4 +103,8 @@ function addDecimal (dot) {
     } else {
         displayValue += dot;
     }
+};
+
+function getPercentage (num) {
+    displayValue = num/100;
 };
