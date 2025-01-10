@@ -16,7 +16,7 @@ function operate (a, b, op) {
         return a * b;
     } else if (op === "/") {
         return a / b;
-    }
+    };
 };
 
 function updateDisplay () {
@@ -61,15 +61,17 @@ function getOperand (operand) {
     if (firstOperator === null) {
         if (displayValue === 0 || displayValue === "0") {
             displayValue = operand;
+        } else if (displayValue === firstOperand) {
+            displayValue = operand;
         } else {
             displayValue += operand;
-        }
-    }   else {
+        };
+    } else {
         if (displayValue === firstOperand) {
             displayValue = operand;
         } else {
             displayValue += operand;
-        }
+        };
     };
 };
 
@@ -97,12 +99,15 @@ function getOperator (operator) {
 function getEquals () {
     if (firstOperand === null) {
         displayValue = displayValue;
-    } else if (firstOperand !== null) {
+    } else if (firstOperand !== null && firstOperator !== null) {
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator)
-        displayValue = result;
+        displayValue = String(result);
+        firstOperand = displayValue;
+        secondOperand = null;
+        firstOperator = null;
     };
-}
+};
 
 function clearDisplay () {
     displayValue = 0;
@@ -119,7 +124,7 @@ function addDecimal (dot) {
         displayValue += dot;
     } else {
         displayValue += dot;
-    }
+    };
 };
 
 function getPercentage (num) {
