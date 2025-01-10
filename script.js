@@ -49,7 +49,7 @@ function getValues () {
             } else if (item.classList.contains("inverse")) {
                 getInverse(displayValue);
                 updateDisplay();
-            }
+            };
         });
     });
 };
@@ -77,8 +77,20 @@ function getOperator (operator) {
     if (firstOperator === null) {
         firstOperand = displayValue;
         firstOperator = operator;
-    } else if (firstOperator !== null) {
+    } else if (firstOperator !== null && secondOperand === null) {
         secondOperand = displayValue;
+        secondOperator = operator;
+        result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
+        displayValue = String(result);
+        firstOperand = displayValue;
+        result = null;
+    } else if (firstOperand !== null && secondOperand !== null) {
+        secondOperand = displayValue;
+        secondOperator = operator
+        result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
+        displayValue = String(result);
+        firstOperand = displayValue;
+        result = null;
     };
 };
 
@@ -89,14 +101,16 @@ function getEquals () {
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator)
         displayValue = result;
-    }
+    };
 }
 
 function clearDisplay () {
     displayValue = 0;
     firstOperator = null;
+    secondOperator = null;
     firstOperand = null;
     secondOperand = null;
+    result = null;
 };
 
 function addDecimal (dot) {
@@ -114,4 +128,4 @@ function getPercentage (num) {
 
 function getInverse (num) {
     displayValue = num * (-1);
-}
+};
