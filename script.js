@@ -122,7 +122,7 @@ function addDecimal (dot) {
     if (displayValue === firstOperand || displayValue === secondOperand) {
         displayValue = 0;
         displayValue += dot;
-    } else {
+    } else if (!displayValue.includes(dot)) {
         displayValue += dot;
     };
 };
