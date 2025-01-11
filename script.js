@@ -49,6 +49,9 @@ function getValues () {
             } else if (item.classList.contains("inverse")) {
                 getInverse(displayValue);
                 updateDisplay();
+            } else if (item.classList.contains("backspace")) {
+                deleteWithBackspace();
+                updateDisplay();
             };
         });
     });
@@ -133,4 +136,18 @@ function getPercentage (num) {
 
 function getInverse (num) {
     displayValue = num * (-1);
+};
+
+function deleteWithBackspace () {
+    if (displayValue === 0 || displayValue === "0") {
+        displayValue = displayValue;
+    } else {
+        num = displayValue.split("");
+        num.splice(num.length - 1, 1);
+        if (!num.length) {
+            displayValue = "0";
+        } else {
+            displayValue = num.join(""); 
+        };
+    };
 };
