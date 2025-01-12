@@ -151,3 +151,25 @@ function deleteWithBackspace () {
         };
     };
 };
+
+
+function addKeyboardSupport () {
+    document.addEventListener("keydown", (event) => {
+        console.log(event.key)
+        const key = event.key;
+        let num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        let operand = ["-", "+", "*", "/"];
+        if (num.includes(key)) {
+            getOperand(key);
+            updateDisplay();
+        } else if (operand.includes(key)) {
+            getOperator(key);
+            updateDisplay();
+        } else if (key === '=' || key === 'Enter') {
+            getEquals();
+            updateDisplay();
+        };
+    });
+};
+
+addKeyboardSupport();
