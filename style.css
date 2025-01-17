@@ -7,6 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
     height: 100vh;
     padding: 8px;
     box-sizing: border-box;
@@ -15,9 +16,9 @@ body {
 #container {
     display: flex;
     flex-flow: row wrap;
-    width: 430px;
+    width: 400px;
     height: 70%;
-    border: 10px solid #000000;
+    border: 8px solid #000000;
     border-radius: 5px;
     background-color: #000000;
 }
@@ -25,7 +26,6 @@ body {
 #display {
     width: 100%;
     background-color: #ffffff;
-    flex: 1 1 auto;
     border: 5px solid #000000;
     border-bottom: 7px solid #000000;
     height: 20%;
@@ -40,10 +40,8 @@ body {
     height: calc(80% / 5);
     box-sizing: border-box;
     border-radius: 7px;
-    border: 2.5px solid #000000;
-    min-width: 0;
-    min-height: 0;
-    flex: 1 1 auto;
+    border: 3px solid #000000;
+    font-family: monospace;
     font-size: 25px;
     font-weight: 550;
 }
@@ -53,11 +51,7 @@ body {
     background-color: #cbbfbf;
 }
 
-.clear,
-.decimal,
-.percentage,
-.inverse,
-.backspace {
+.action {
     background-color: #dd2424;
 }
 
@@ -65,4 +59,20 @@ body {
 .equals
  {
     background-color: #e7962c;
+}
+
+.operator:focus {
+    background-color: #a98659;
+}
+
+.equals:active {
+    background-color: #a98659;
+}
+
+.operand:active {
+    background-color: #eae1e1;
+}
+
+.action:active {
+    background-color: #dd5a5a;
 }
