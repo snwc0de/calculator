@@ -22,6 +22,9 @@ function operate (a, b, op) {
 function updateDisplay () {
     const display = document.querySelector("#display");
     display.textContent = displayValue;
+    if (displayValue.length > 10) {
+        display.textContent = displayValue.substring(0, 10);
+    }
 };
 
 
@@ -131,11 +134,11 @@ function addDecimal (dot) {
 };
 
 function getPercentage (num) {
-    displayValue = num/100;
+    displayValue = (num/100).toString();
 };
 
 function getInverse (num) {
-    displayValue = num * (-1);
+    displayValue = (num * (-1)).toString();
 };
 
 function deleteWithBackspace () {

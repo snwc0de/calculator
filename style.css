@@ -16,23 +16,26 @@ body {
 #container {
     display: flex;
     flex-flow: row wrap;
-    width: 400px;
-    height: 70%;
+    width: 430px;
+    height: 75%;
     border: 8px solid #000000;
     border-radius: 5px;
     background-color: #000000;
 }
 
 #display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     width: 100%;
     background-color: #ffffff;
     border: 5px solid #000000;
     border-bottom: 7px solid #000000;
     height: 20%;
     box-sizing: border-box;
-    text-align: end;
-    font-size: 75px;
+    font-size: 70px;
     font-weight: 600;
+    text-shadow: 1.5px 1.5px #514b4b;
 }
 
 #container > button {
