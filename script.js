@@ -89,14 +89,14 @@ function getOperator (operator) {
         secondOperand = displayValue;
         secondOperator = operator;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator);
-        displayValue = String(result);
+        displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
     } else if (firstOperand !== null && secondOperand !== null) {
         secondOperand = displayValue;
         secondOperator = operator
         result = operate(Number(firstOperand), Number(secondOperand), secondOperator);
-        displayValue = String(result);
+        displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         result = null;
     };
@@ -108,7 +108,7 @@ function getEquals () {
     } else if (firstOperand !== null && firstOperator !== null) {
         secondOperand = displayValue;
         result = operate(Number(firstOperand), Number(secondOperand), firstOperator)
-        displayValue = String(result);
+        displayValue = roundAccurately(result, 15).toString();
         firstOperand = displayValue;
         secondOperand = null;
         firstOperator = null;
@@ -190,3 +190,7 @@ function addKeyboardSupport () {
 };
 
 addKeyboardSupport();
+
+function roundAccurately(num, places) {
+    return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
+}
